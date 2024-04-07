@@ -1,0 +1,73 @@
+#include <iostream>
+
+using namespace std;
+
+// Task 1
+void copyArray(int* source, int* destination, int size) {
+    for (int i = 0; i < size; ++i) {
+        *(destination + i) = *(source + i);
+    }
+}
+
+// Task 2
+void reverseArray(int* arr, int size) {
+    int* start = arr;
+    int* end = arr + size - 1;
+    while (start < end) {
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
+    }
+}
+
+// Task 3
+void copyReverseArray(int* source, int* destination, int size) {
+    int* sourcePtr = source + size - 1;
+    int* destPtr = destination;
+    for (int i = 0; i < size; ++i) {
+        *destPtr = *sourcePtr;
+        destPtr++;
+        sourcePtr--;
+    }
+}
+
+int main() {
+    // Task 1
+    int arr1[] = { 1, 2, 3, 4, 5 };
+    int arr2[5];
+    copyArray(arr1, arr2, 5);
+
+    // Displaying
+    cout << "Copied array from Task 1: ";
+    for (int i = 0; i < 5; ++i) {
+        cout << arr2[i] << " ";
+    }
+    cout << endl;
+
+    // Task 2
+    int arr3[] = { 1, 2, 3, 4, 5 };
+    reverseArray(arr3, 5);
+
+    // Displaying
+    cout << "Reversed array from Task 2: ";
+    for (int i = 0; i < 5; ++i) {
+        cout << arr3[i] << " ";
+    }
+    cout << endl;
+
+    // Task 3
+    int arr4[] = { 1, 2, 3, 4, 5 };
+    int arr5[5];
+    copyReverseArray(arr4, arr5, 5);
+
+    // Displaying
+    cout << "Copied array in reverse order from Task 3: ";
+    for (int i = 0; i < 5; ++i) {
+        cout << arr5[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
